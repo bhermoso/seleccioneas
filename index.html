@@ -1,0 +1,1196 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>
+   Selección EAS2023 para análisis territoriales de salud
+  </title><style>
+   * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .nav-tabs { display: flex; background: #f8f9fa; border-bottom: 3px solid #667eea; position: sticky; top: 0; z-index: 100; }
+        .nav-tab { flex: 1; padding: 20px; text-align: center; cursor: pointer; transition: all 0.3s; border: none; background: none; font-size: 1em; font-weight: 600; color: #666; }
+        .nav-tab:hover { background: #e9ecef; color: #667eea; }
+        .nav-tab.active { background: white; color: #667eea; border-bottom: 3px solid #667eea; margin-bottom: -3px; }
+        .content { padding: 40px; }
+        .area { display: none; }
+        .area.active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .area-title { font-size: 2em; color: #667eea; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 3px solid #667eea; }
+        .cuestionario-subtitle { font-size: 1.3em; color: #764ba2; margin: 30px 0 20px 0; padding: 10px; background: #f8f9fa; border-left: 4px solid #764ba2; }
+        .scale-info { background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border: 2px solid #667eea; border-radius: 10px; padding: 20px; margin: 25px 0; }
+        .scale-info h3 { color: #667eea; margin-bottom: 10px; font-size: 1em; }
+        .scale-info p { margin: 5px 0; font-size: 0.95em; }
+        .question-block { margin: 25px 0; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; transition: all 0.3s; }
+        .question-block:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .question-header { background: #f8f9fa; padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; }
+        .question-header:hover { background: #e9ecef; }
+        .question-number { font-weight: bold; color: #667eea; font-size: 1.1em; margin-right: 15px; min-width: 60px; }
+        .question-text { flex: 1; font-weight: 500; color: #333; font-size: 0.95em; line-height: 1.4; }
+        .toggle-icon { font-size: 1.5em; color: #667eea; transition: transform 0.3s; margin-left: 15px; }
+        .question-block.open .toggle-icon { transform: rotate(180deg); }
+        .question-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .question-block.open .question-content { max-height: 3000px; }
+        .question-body { padding: 25px; background: white; }
+        .question-full-text { color: #555; margin-bottom: 20px; line-height: 1.8; font-size: 1.05em; }
+        .items-list { margin: 15px 0; padding-left: 0; list-style: none; }
+        .items-list li { padding: 10px; margin: 5px 0; background: #f8f9fa; border-left: 3px solid #764ba2; border-radius: 5px; }
+        .options { background: linear-gradient(to right, #667eea15, #764ba215); padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .options-label { font-weight: bold; color: #667eea; margin-bottom: 12px; font-size: 1.05em; }
+        .options-text { color: #444; line-height: 2; font-size: 1em; }
+        .option-separator { color: #667eea; font-weight: bold; margin: 0 8px; }
+        .footer { background: #2c3e50; color: white; padding: 30px; text-align: center; }
+        .footer p { margin: 10px 0; opacity: 0.9; }
+        .expand-all-btn { background: #667eea; color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-size: 1em; font-weight: 600; margin: 20px 0; transition: all 0.3s; }
+        .expand-all-btn:hover { background: #764ba2; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .scale-end-note { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 25px; margin: 30px 0; border-radius: 10px; text-align: center; font-weight: bold; font-size: 1.1em; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .additional-question-note { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; color: #856404; }
+        .additional-question-note strong { color: #764ba2; }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .nav-tab { font-size: 0.9em; padding: 15px 10px; }
+            .content { padding: 20px; }
+        }
+  </style></head><body><div class="container"><div class="header"><h1>
+     Selección EAS2023 para análisis territoriales de salud
+    </h1></div><div class="nav-tabs"><button class="nav-tab active" onclick="showArea('area1')">
+     Área 1
+    </button><button class="nav-tab" onclick="showArea('area2')">
+     Área 2
+    </button><button class="nav-tab" onclick="showArea('area3')">
+     Área 3
+    </button></div><div class="content"><div class="area active" id="area1"><button class="expand-all-btn" onclick="toggleAllQuestions('area1')">
+      Expandir/Contraer Todas
+     </button><h2 class="area-title">
+      ÁREA 1: Percepción del estado de salud y necesidades
+     </h2><h3 class="cuestionario-subtitle">
+      CUESTIONARIO DE ADULTOS (16 Y MÁS AÑOS)
+     </h3><div class="scale-info"><h3>
+       **ÍNDICE/ESCALA:** SF-12 (Short Form-12 Health Survey)
+      </h3><p>
+       **N° ÍTEMS:** 12
+      </p><p>
+       **MIDE:** Calidad de vida relacionada con la salud (componente físico y mental)
+      </p></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.7
+       </span><span class="question-text">
+        En general, usted diría que su salud es ... (una sola respuesta)
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Excelente
+          <span class="option-separator">
+           /
+          </span>
+          Muy buena
+          <span class="option-separator">
+           /
+          </span>
+          Buena
+          <span class="option-separator">
+           /
+          </span>
+          Regular
+          <span class="option-separator">
+           /
+          </span>
+          Mala
+          <span class="option-separator">
+           /
+          </span>
+          No sabe-no está seguro
+          <span class="option-separator">
+           /
+          </span>
+          Se negó
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.8
+       </span><span class="question-text">
+        Las siguientes preguntas se refieren a sus actividades o cosas que usted podría hacer un día normal. Su salud actual, ¿le limita para hacer esas actividades o cosas?. En caso afirmativo, ¿cuánto?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><ul class="items-list"><li>
+          • Esfuerzos moderados como mover una mesa, pasa la aspiradora, jugar a los bolos o caminar más de 1 hora
+         </li><li>
+          • Subir varios pisos por la escalera
+         </li></ul><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí, me limita MUCHO
+          <span class="option-separator">
+           /
+          </span>
+          Sí, me limita UN POCO
+          <span class="option-separator">
+           /
+          </span>
+          No, no me limita NADA
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.9
+       </span><span class="question-text">
+        Durante las últimas 4 semanas, ¿ha tenido alguno de los siguientes problemas en su trabajo o en sus actividades cotidianas a causa de su salud física?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><ul class="items-list"><li>
+          • ¿Hizo menos de lo que hubiera querido hacer?
+         </li><li>
+          • ¿Tuvo que dejar de hacer algunas tareas en su trabajo o en sus actividades cotidianas?
+         </li></ul><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí
+          <span class="option-separator">
+           /
+          </span>
+          No
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.10
+       </span><span class="question-text">
+        Durante las últimas 4 semanas ha tenido alguno de los siguientes problemas en su trabajo o en sus actividades cotidianas, a causa de algún problema emocional (como estar triste, deprimido o nervioso)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><ul class="items-list"><li>
+          • ¿Hizo menos de lo que hubiera querido por algún problema emocional?
+         </li><li>
+          • ¿No hizo su trabajo o sus actividades cotidianas tan cuidadosamente como de costumbre por algún problema emocional?
+         </li></ul><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí
+          <span class="option-separator">
+           /
+          </span>
+          No
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.11
+       </span><span class="question-text">
+        Durante las 4 últimas semanas, ¿hasta qué punto el dolor le ha dificultado su trabajo habitual (incluido el trabajo fuera de casa y las tareas domésticas)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Nada
+          <span class="option-separator">
+           /
+          </span>
+          Un poco
+          <span class="option-separator">
+           /
+          </span>
+          Regular
+          <span class="option-separator">
+           /
+          </span>
+          Bastante
+          <span class="option-separator">
+           /
+          </span>
+          Mucho
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.12
+       </span><span class="question-text">
+        Las preguntas que siguen se refieren a cómo se ha sentido y cómo le han ido las cosas durante las 4 últimas semanas. En cada pregunta responda lo que se parezca más a cómo se ha sentido usted. Durante las 4 últimas semanas, ¿con qué frecuencia ...
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><ul class="items-list"><li>
+          • Se sintió calmado y tranquilo?
+         </li><li>
+          • Tuvo mucha energía?
+         </li><li>
+          • Se sintió desanimado y triste?
+         </li></ul><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Siempre
+          <span class="option-separator">
+           /
+          </span>
+          Casi siempre
+          <span class="option-separator">
+           /
+          </span>
+          Muchas veces
+          <span class="option-separator">
+           /
+          </span>
+          Algunas veces
+          <span class="option-separator">
+           /
+          </span>
+          Sólo alguna vez
+          <span class="option-separator">
+           /
+          </span>
+          Nunca
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.13
+       </span><span class="question-text">
+        Durante las 4 últimas semanas, ¿con qué frecuencia la salud física o los problemas emocionales le han dificultado sus actividades sociales (como visitar a los amigos o familiares)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Siempre
+          <span class="option-separator">
+           /
+          </span>
+          Casi siempre
+          <span class="option-separator">
+           /
+          </span>
+          Algunas veces
+          <span class="option-separator">
+           /
+          </span>
+          Sólo alguna vez
+          <span class="option-separator">
+           /
+          </span>
+          Nunca
+         </div></div></div></div></div><div class="scale-end-note">
+      ✓ FIN DE LA ESCALA SF-12
+     </div><div class="additional-question-note"><strong>
+       ⚠️ NOTA:
+      </strong>
+      La siguiente pregunta (P.7b) NO es parte del SF-12. Es una pregunta adicional de la VI Encuesta Andaluza de Salud para evaluar la autopercepción de salud mental.
+     </div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.7b
+       </span><span class="question-text">
+        Y, en general, usted diría que su salud mental es...
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Excelente
+          <span class="option-separator">
+           /
+          </span>
+          Muy buena
+          <span class="option-separator">
+           /
+          </span>
+          Buena
+          <span class="option-separator">
+           /
+          </span>
+          Regular
+          <span class="option-separator">
+           /
+          </span>
+          Mala
+          <span class="option-separator">
+           /
+          </span>
+          No sabe-no está seguro
+          <span class="option-separator">
+           /
+          </span>
+          Se negó
+         </div></div></div></div></div></div><div class="area" id="area2"><button class="expand-all-btn" onclick="toggleAllQuestions('area2')">
+      Expandir/Contraer Todas
+     </button><h2 class="area-title">
+      ÁREA 2: Hábitos de salud
+     </h2><h3 class="cuestionario-subtitle">
+      CUESTIONARIO DE ADULTOS (16 Y MÁS AÑOS)
+     </h3><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.23
+       </span><span class="question-text">
+        Cambiando de tema, ¿podría usted decirme si fuma? En caso de que fume o haya fumado, ¿a qué edad empezó a fumar?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="question-full-text">
+          <strong>Tabaco:</strong>
+         </div><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí, fuma diariamente
+          <span class="option-separator">
+           /
+          </span>
+          Sí, fuma pero no diariamente
+          <span class="option-separator">
+           /
+          </span>
+          No fuma, pero ha fumado
+          <span class="option-separator">
+           /
+          </span>
+          No fuma ni ha fumado nunca de manera habitual
+          <span class="option-separator">
+           /
+          </span>
+          No contesta
+         </div></div><div class="additional-question-note" style="margin-top: 20px; background: #e3f2fd; border-left-color: #2196f3;">
+          <strong>Campo adicional:</strong> Edad de inicio tabaco: ____ años NC…999
+         </div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.25d
+       </span><span class="question-text">
+        ¿Cuál de las siguientes formas describe mejor su consumo de tabaco no tradicional, denominado ahora electrónico (se incluyen pipas de agua, cachimbas, vapeadores, cigarrillos electrónicos)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          No he fumado nunca
+          <span class="option-separator">
+           /
+          </span>
+          Fumo menos de una vez a la semana
+          <span class="option-separator">
+           /
+          </span>
+          Fumo alguna vez a la semana, pero no diariamente
+          <span class="option-separator">
+           /
+          </span>
+          Fumo diariamente
+          <span class="option-separator">
+           /
+          </span>
+          No fumo, pero he fumado antes diariamente
+          <span class="option-separator">
+           /
+          </span>
+          No fumo, aunque he fumado antes pero no diariamente
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.29
+       </span><span class="question-text">
+        Ahora quisiera hacerle unas preguntas respecto al consumo de bebidas alcohólicas, es decir, cualquier tipo de bebida que contenga alcohol, independiente de su graduación. ¿Consume Vd. algún tipo de bebida alcohólica con una frecuencia de al menos una vez al mes?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí, a diario, varias veces al día
+          <span class="option-separator">
+           /
+          </span>
+          Sí, a diario, una vez al día
+          <span class="option-separator">
+           /
+          </span>
+          Sí, 5 ó 6 días por semana
+          <span class="option-separator">
+           /
+          </span>
+          Sí, 3 ó 4 días por semana
+          <span class="option-separator">
+           /
+          </span>
+          Sí, 1 ó 2 días por semana
+          <span class="option-separator">
+           /
+          </span>
+          Sí, alguna vez al mes (de 1 a 3 veces/mes)
+          <span class="option-separator">
+           /
+          </span>
+          No, consumo menos de una vez al mes (alguna vez al año)
+          <span class="option-separator">
+           /
+          </span>
+          No, consumo menos de una vez al mes, pero sí he consumido antes más de una vez al mes
+          <span class="option-separator">
+           /
+          </span>
+          No, nunca he consumido bebidas alcohólicas o solo unos sorbos para probar
+          <span class="option-separator">
+           /
+          </span>
+          No sabe
+          <span class="option-separator">
+           /
+          </span>
+          No contesta
+         </div></div></div></div></div><div class="scale-info"><h3>
+       **ÍNDICE/ESCALA:** Test CAGE
+      </h3><p>
+       **N° ÍTEMS:** 4
+      </p><p>
+       **MIDE:** Problemas con el consumo de alcohol
+      </p></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.32
+       </span><span class="question-text">
+        ¿Ha pensando alguna vez que debería beber menos?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí
+          <span class="option-separator">
+           /
+          </span>
+          No
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.32a
+       </span><span class="question-text">
+        ¿Le ha molestado que la gente le haya criticado su forma de beber?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí
+          <span class="option-separator">
+           /
+          </span>
+          No
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.32b
+       </span><span class="question-text">
+        ¿Se ha sentido mal o culpable por su forma de beber?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí
+          <span class="option-separator">
+           /
+          </span>
+          No
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.32c
+       </span><span class="question-text">
+        ¿Ha bebido alguna vez a primera hora de la mañana para calmar los nervios o para evitar la resaca?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí
+          <span class="option-separator">
+           /
+          </span>
+          No
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="scale-info"><h3>
+       **ÍNDICE/ESCALA:** Calidad del Sueño
+      </h3><p>
+       **N° ÍTEMS:** 4 preguntas principales + 5 ítems en P.33b
+      </p><p>
+       **MIDE:** Horas de sueño, calidad del descanso y problemas del sueño
+      </p></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.33
+       </span><span class="question-text">
+        ¿Podría indicarme, aproximadamente, cuántas horas al día duerme habitualmente?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          ___ Horas entre semana / ___ Horas fines de semana/festivos / NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.33a
+       </span><span class="question-text">
+        Las horas que duerme, ¿le permiten descansar lo suficiente?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí
+          <span class="option-separator">
+           /
+          </span>
+          No
+          <span class="option-separator">
+           /
+          </span>
+          NS
+          <span class="option-separator">
+           /
+          </span>
+          NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.33.1
+       </span><span class="question-text">
+        ¿Podría indicarme, aproximadamente, cuánto tiempo duerme de siesta habitualmente?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          ___ Horas ___ minutos / No duermo siesta / NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.33b
+       </span><span class="question-text">
+        En relación a sus horas de sueño.....
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><ul class="items-list"><li>
+          • ¿Tiene dificultades para dormirse (por la noche)?
+         </li><li>
+          • ¿Se despierta durante la noche, y tiene dificultad en volver a dormirse?
+         </li><li>
+          • ¿Se despierta demasiado temprano/pronto (de forma involuntaria)?
+         </li><li>
+          • ¿Se siente cansado/a cuando despierta (por la mañana)?
+         </li><li>
+          • ¿Tomas algún remedio para dormir (no medicamentos)?
+         </li></ul><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Nunca
+          <span class="option-separator">
+           /
+          </span>
+          Ocasionalmente (alguna vez al mes)
+          <span class="option-separator">
+           /
+          </span>
+          A menudo (alguna vez a la semana)
+          <span class="option-separator">
+           /
+          </span>
+          Diariamente o casi diariamente
+          <span class="option-separator">
+           /
+          </span>
+          Ns/Nc
+         </div></div></div></div></div><div class="scale-end-note">
+      ⚠️ FIN DEL BLOQUE CALIDAD DEL SUEÑO
+     </div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.34
+       </span><span class="question-text">
+        En relación al ejercicio físico en su trabajo o actividad habitual, ¿cuál de estas situaciones describe mejor su caso?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sentado/a la mayor parte de la jornada
+          <span class="option-separator">
+           /
+          </span>
+          De pie la mayor parte sin grandes desplazamientos o esfuerzos
+          <span class="option-separator">
+           /
+          </span>
+          Caminando, llevando algún peso, desplazamientos frecuentes
+          <span class="option-separator">
+           /
+          </span>
+          Trabajo pesado, tareas que requieren gran esfuerzo físico
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.34a
+       </span><span class="question-text">
+        En relación al ejercicio físico en su tiempo libre, ¿cuál de estas situaciones describe mejor su caso?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          No hago ejercicio, no tengo tiempo libre
+          <span class="option-separator">
+           /
+          </span>
+          No hago ejercicio. Mi tiempo libre lo ocupo casi completamente sedentario (leer, TV, cine, etc.)
+          <span class="option-separator">
+           /
+          </span>
+          Actividad física ocasional
+          <span class="option-separator">
+           /
+          </span>
+          Actividad física regular varias veces al mes
+          <span class="option-separator">
+           /
+          </span>
+          Entrenamiento físico varias veces a la semana
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="scale-info"><h3>
+       **ÍNDICE/ESCALA:** Cuestionario de Adherencia a la Dieta Mediterránea
+      </h3><p>
+       **N° ÍTEMS:** 14
+      </p><p>
+       **MIDE:** Adherencia al patrón de dieta mediterránea
+      </p></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.1
+       </span><span class="question-text">
+        ¿Usa usted el aceite de oliva como principal grasa para cocinar?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí
+          <span class="option-separator">
+           /
+          </span>
+          No
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.2
+       </span><span class="question-text">
+        ¿Cuánto aceite de oliva consume en total al día (incluyendo el usado para freír, el de las comidas fuera de casa, las ensaladas, etc.)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Cuatro o más cucharadas
+          <span class="option-separator">
+           /
+          </span>
+          Dos o tres cucharadas
+          <span class="option-separator">
+           /
+          </span>
+          Menos de dos cucharadas
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.3
+       </span><span class="question-text">
+        ¿Cuántas raciones de verdura u hortalizas consume al día (las guarniciones o acompañamientos contabilizan como ½ ración)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Dos o más al día (al menos una de ellas en ensalada o crudas)
+          <span class="option-separator">
+           /
+          </span>
+          Diariamente, aunque menos de dos al día
+          <span class="option-separator">
+           /
+          </span>
+          No diariamente, pero tres o más por semana
+          <span class="option-separator">
+           /
+          </span>
+          Menos de tres veces por semana
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.4
+       </span><span class="question-text">
+        ¿Cuántas piezas de fruta (incluyendo zumo natural) consume al día?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Tres o más al día
+          <span class="option-separator">
+           /
+          </span>
+          Diariamente aunque menos de tres veces al día
+          <span class="option-separator">
+           /
+          </span>
+          No diariamente, pero tres o más veces por semana
+          <span class="option-separator">
+           /
+          </span>
+          Menos de tres veces por semana
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.5
+       </span><span class="question-text">
+        ¿Cuántas raciones de carnes rojas, hamburguesas, salchichas o embutidos consume al día (una ración equivale a 100-150 gr)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Menos de una al día
+          <span class="option-separator">
+           /
+          </span>
+          Una o más de una ración
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.6
+       </span><span class="question-text">
+        ¿Cuántas raciones de mantequilla, margarina o nata consume al día (una porción individual equivale a 12 gr)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Menos de una al día
+          <span class="option-separator">
+           /
+          </span>
+          Una o más al día
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.7
+       </span><span class="question-text">
+        ¿Cuántas bebidas carbonatadas y/o azucaradas (refrescos, colas, tónicas, bitter) consume al día?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Menos de una al día
+          <span class="option-separator">
+           /
+          </span>
+          Una o más de una al día
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.8
+       </span><span class="question-text">
+        ¿Bebe vino? ¿Cuánto consume a la semana?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Siete o más vasos a la semana
+          <span class="option-separator">
+           /
+          </span>
+          De tres a menos de 7 vasos a la semana
+          <span class="option-separator">
+           /
+          </span>
+          Menos de tres vasos a la semana
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.9
+       </span><span class="question-text">
+        ¿Cuántas raciones de legumbres consume a la semana (una ración o plato equivale a 150 gr)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Tres o más por semana
+          <span class="option-separator">
+           /
+          </span>
+          Una o dos a la semana
+          <span class="option-separator">
+           /
+          </span>
+          Menos de una por semana
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.10
+       </span><span class="question-text">
+        ¿Cuántas raciones de pescado o mariscos consume a la semana (un plato, pieza o ración equivale a 100-150 gr de pescado ó 4-5 piezas de marisco)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Dos o más por semana
+          <span class="option-separator">
+           /
+          </span>
+          Uno por semana
+          <span class="option-separator">
+           /
+          </span>
+          Menos de una por semana
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.11
+       </span><span class="question-text">
+        ¿Cuántas consume repostería comercial (no casera) como galletas, flanes, dulce o pasteles?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Tres o más a la semana
+          <span class="option-separator">
+           /
+          </span>
+          Uno o dos a la semana
+          <span class="option-separator">
+           /
+          </span>
+          Menos de una a la semana
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.12
+       </span><span class="question-text">
+        ¿Cuántas veces consume frutos secos a la semana (una ración equivale a 30 gr)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Tres o más a la semana
+          <span class="option-separator">
+           /
+          </span>
+          Una o dos por semana
+          <span class="option-separator">
+           /
+          </span>
+          Menos de una a la semana
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.13
+       </span><span class="question-text">
+        ¿Consume preferentemente carne de pollo, pavo o conejo en vez de ternera, cerdo, hamburguesas o salchichas (carne de pollo: una pieza o ración equivale a 100-150 gr)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí
+          <span class="option-separator">
+           /
+          </span>
+          No
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.36b.14
+       </span><span class="question-text">
+        ¿Cuántas veces a la semana consume los vegetales cocinados, la pasta, el arroz u otros platos aderezados con una salsa de tomate, ajo, cebolla o puerro elaborada a fuego lento con aceite de oliva (sofrito)?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Dos o más por semana
+          <span class="option-separator">
+           /
+          </span>
+          Una por semana
+          <span class="option-separator">
+           /
+          </span>
+          Menos de una por semana
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div></div><div class="area" id="area3"><button class="expand-all-btn" onclick="toggleAllQuestions('area3')">
+      Expandir/Contraer Todas
+     </button><h2 class="area-title">
+      ÁREA 3: Bienestar y condiciones de vida
+     </h2><h3 class="cuestionario-subtitle">
+      CUESTIONARIO DE HOGARES
+     </h3><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.4d
+       </span><span class="question-text">
+        En relación a su vivienda....
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><ul class="items-list"><li>
+          • ¿Tiene su vivienda una temperatura suficientemente cálida durante los meses fríos?
+         </li><li>
+          • ¿Tiene su vivienda una temperatura suficientemente fresca durante el verano?
+         </li></ul><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Sí
+          <span class="option-separator">
+           /
+          </span>
+          No
+          <span class="option-separator">
+           /
+          </span>
+          NS
+          <span class="option-separator">
+           /
+          </span>
+          NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.5
+       </span><span class="question-text">
+        La siguiente pregunta se refiere a aspectos del medio ambiente del barrio o zona donde usted reside. Referido al último año, considera usted que ....
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><ul class="items-list"><li>
+          • El ruido procedente del exterior de su vivienda le resulta molesto
+         </li><li>
+          • Su vivienda sufre de malos olores procedentes del exterior
+         </li><li>
+          • En el barrio donde usted vive la contaminación del aire es elevada
+         </li><li>
+          • Su barrio se encuentra afectado por alguna industria contaminante
+         </li><li>
+          • En el barrio hay escasez de zonas verdes
+         </li><li>
+          • En el barrio donde usted vive hay delicuencia/inseguridad
+         </li><li>
+          • En el barrio donde usted vive hay tráfico intenso de vehículos de motor
+         </li></ul><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Mucho
+          <span class="option-separator">
+           /
+          </span>
+          Algo
+          <span class="option-separator">
+           /
+          </span>
+          Nada
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.5b
+       </span><span class="question-text">
+        En general, la calidad del medio ambiente de su barrio es ...
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Muy buena
+          <span class="option-separator">
+           /
+          </span>
+          Buena
+          <span class="option-separator">
+           /
+          </span>
+          Regular
+          <span class="option-separator">
+           /
+          </span>
+          Mala
+          <span class="option-separator">
+           /
+          </span>
+          Muy mala
+          <span class="option-separator">
+           /
+          </span>
+          NS/NC
+         </div></div></div></div></div><h3 class="cuestionario-subtitle">
+      CUESTIONARIO DE ADULTOS (16 Y MÁS AÑOS)
+     </h3><div class="scale-info"><h3>
+       **ÍNDICE/ESCALA:** Cuestionario Duke-UNC de Apoyo Social Funcional
+      </h3><p>
+       **N° ÍTEMS:** 11
+      </p><p>
+       **MIDE:** Apoyo social funcional percibido
+      </p></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.57a
+       </span><span class="question-text">
+        En la siguiente lista se muestran algunas cosas que otras personas hacen por nosotros o nos proporcionan. Elija para cada una la respuesta que mejor refleje su situación, según la escala de 5 a 1, en la que "5" significa "TANTO COMO DESEO", "4" "casi como deseo", "3" "ni mucho ni poco", "2" "menos de lo que deseo" y "1" significa "MUCHO MENOS DE LO QUE DESEO"
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><ul class="items-list"><li>
+          • Recibo visitas de mis amigos y familiares
+         </li><li>
+          • Recibo ayuda en asuntos relacionados con mi casa
+         </li><li>
+          • Recibo elogios y reconocimientos cuando hago bien mi trabajo
+         </li><li>
+          • Cuento con personas que se preocupan de lo que me sucede
+         </li><li>
+          • Recibo amor y afecto
+         </li><li>
+          • Tengo la posibilidad de hablar con alguien de mis problemas en el trabajo y/o en la casa
+         </li><li>
+          • Tengo la posibilidad de hablar con alguien de mis problemas personales y familiares
+         </li><li>
+          • Tengo posibilidad de hablar con alguien de mis problemas económicos
+         </li><li>
+          • Recibo invitaciones para distraerme y salir con otras personas
+         </li><li>
+          • Recibo consejos útiles cuando me ocurre algún acontecimiento importante en mi vida
+         </li><li>
+          • Recibo ayuda cuando estoy enfermo en la cama
+         </li></ul><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          5 = Tanto como deseo
+          <span class="option-separator">
+           /
+          </span>
+          4 = Casi como deseo
+          <span class="option-separator">
+           /
+          </span>
+          3 = Ni mucho ni poco
+          <span class="option-separator">
+           /
+          </span>
+          2 = Menos de lo que deseo
+          <span class="option-separator">
+           /
+          </span>
+          1 = Mucho menos de lo que deseo
+         </div></div></div></div></div><div class="scale-info"><h3>
+       **ÍNDICE/ESCALA:** Índice de Bienestar Emocional
+      </h3><p>
+       **N° ÍTEMS:** 6
+      </p><p>
+       **MIDE:** Bienestar emocional y salud mental
+      </p></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.57b
+       </span><span class="question-text">
+        A continuación, le voy a leer una lista de sentimientos o comportamientos que quizás haya tenido Vd. durante la última semana. Por favor, dígame con qué frecuencia, se ha sentido...
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><ul class="items-list"><li>
+          • Deprimido/a
+         </li><li>
+          • Feliz
+         </li><li>
+          • Solo/a
+         </li><li>
+          • Ha tenido la sensación de disfrutar de la vida
+         </li><li>
+          • Rebosante de energía
+         </li><li>
+          • Tranquilo/a y relajado/a
+         </li></ul><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          1 = En ningún momento o en casi ningún momento
+          <span class="option-separator">
+           /
+          </span>
+          2 = En algún momento
+          <span class="option-separator">
+           /
+          </span>
+          3 = Buena parte del tiempo
+          <span class="option-separator">
+           /
+          </span>
+          4 = Todo o casi todo el tiempo
+          <span class="option-separator">
+           /
+          </span>
+          No sabe
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.71
+       </span><span class="question-text">
+        ¿Con los ingresos de su hogar, cómo suele llegar usted, o en su caso, usted y su familia, en la actualidad a fin de mes?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          Con mucha dificultad
+          <span class="option-separator">
+           /
+          </span>
+          Con dificultad
+          <span class="option-separator">
+           /
+          </span>
+          Con cierta/alguna dificultad
+          <span class="option-separator">
+           /
+          </span>
+          Con cierta/alguna facilidad
+          <span class="option-separator">
+           /
+          </span>
+          Con facilidad
+          <span class="option-separator">
+           /
+          </span>
+          Con mucha facilidad
+          <span class="option-separator">
+           /
+          </span>
+          NC
+         </div></div></div></div></div><div class="question-block" onclick="toggleQuestion(this)"><div class="question-header"><span class="question-number">
+        P.78b
+       </span><span class="question-text">
+        ¿Cuál es la ocupación que desempeña en la actualidad o la última que ha desempeñado la persona que aporta más ingresos al hogar?
+       </span><span class="toggle-icon">
+        ▼
+       </span></div><div class="question-content"><div class="question-body"><div class="options"><div class="options-label">
+          Opciones de respuesta:
+         </div><div class="options-text">
+          (Entrevistador/a: Apuntar con el mayor nivel de detalle posible) - CNO 2011
+         </div></div></div></div></div></div></div><div class="footer"><p><strong>
+      UGC Prevención, promoción y vigilancia de la salud
+     </strong></p><p>
+     Distrito de Atención Primaria Granada-Metropolitano
+    </p></div></div><script>
+   function showArea(areaId) {
+            document.querySelectorAll('.area').forEach(area => area.classList.remove('active'));
+            document.getElementById(areaId).classList.add('active');
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.closest('.nav-tab').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function toggleQuestion(element) {
+            element.classList.toggle('open');
+        }
+        function toggleAllQuestions(areaId) {
+            const area = document.getElementById(areaId);
+            const questions = area.querySelectorAll('.question-block');
+            const anyOpen = Array.from(questions).some(q => q.classList.contains('open'));
+            questions.forEach(question => {
+                if (anyOpen) { question.classList.remove('open'); }
+                else { question.classList.add('open'); }
+            });
+        }
+  </script></body></html>
